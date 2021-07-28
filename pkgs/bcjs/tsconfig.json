@@ -2,7 +2,7 @@
     "compileOnSave": false,
     "compilerOptions": {
         "baseUrl": "./",
-        "outDir": "./build",
+        "outDir": "./lib",
         "module": "ES2015",
         "moduleResolution": "node",
         "target": "es2017",

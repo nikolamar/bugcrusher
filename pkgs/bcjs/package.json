@@ -1,10 +1,10 @@
 {
     "version": "1.0.0",
     "name": "@bugcrusher/bcjs",
-    "main": "build/index.js",
-    "bin": "build/index.js",
+    "main": "lib/index.js",
+    "bin": "lib/index.js",
     "scripts": {
-        "build": "rm -rf build && copyfiles -u 1 \"src/**/*.d.ts\" build && tsc"
+        "build": "rm -rf lib && copyfiles -u 1 \"src/**/*.d.ts\" lib && tsc"
     },
     "license": "ISC",
     "devDependencies": {
@@ -34,7 +34,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "typings": "build/types/main.d.ts",
+    "typings": "lib/types/main.d.ts",
     "keywords": [
         "bug",
         "crusher"
