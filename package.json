@@ -1,0 +1,15 @@
+{
+    "scripts": {
+        "build": "yarn workspace @bugcrusher/bcjs build"
+    },
+    "name": "@bugcrusher/monorepo",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/nikolatec/bugcrusher.git",
+    "author": "nikola.marjanovic <nikola.marjanovic@gmail.com>",
+    "license": "ISC",
+    "workspaces": [
+        "pkgs/*"
+    ],
+    "private": true
+}
