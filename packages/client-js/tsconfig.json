@@ -1,0 +1,39 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "./lib",
+        "module": "ES2015",
+        "moduleResolution": "node",
+        "target": "es2017",
+        "lib": ["es2017", "dom"],
+        "paths": {},
+        "newLine": "LF",
+        "sourceMap": true,
+        "declaration": true,
+        "removeComments": false,
+        "noLib": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "pretty": true,
+        "allowUnreachableCode": false,
+        "incremental": true,
+        "strictNullChecks": true,
+        "allowJs": false,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "noImplicitThis": true,
+        "typeRoots": [
+            "./types",
+            "../../node_modules/@types/"
+        ]
+    },
+    "include": ["src/"],
+    "exclude": ["node_modules"]
+}
