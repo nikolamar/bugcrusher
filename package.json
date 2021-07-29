@@ -1,15 +1,23 @@
 {
     "scripts": {
-        "build": "yarn workspace @bugcrusher/bcjs build"
+        "build": "yarn workspace @bug-crusher/client-js build",
+        "publish": "yarn npm publish --access public"
     },
-    "name": "@bugcrusher/monorepo",
+    "name": "@bug-crusher/monorepo",
     "version": "1.0.0",
     "main": "index.js",
-    "repository": "https://github.com/nikolatec/bugcrusher.git",
-    "author": "nikola.marjanovic <nikola.marjanovic@gmail.com>",
+    "author": "Nikola Marjanovic <nikolamar@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nikolamar/bugcrusher.git"
+    },
+    "bugs": {
+        "url": "https://github.com/nikolamar/bugcrusher/issues"
+    },
+    "homepage": "https://github.com/nikolamar/bugcrusher#readme",
     "license": "ISC",
     "workspaces": [
-        "pkgs/*"
+        "packages/*"
     ],
     "private": true
 }

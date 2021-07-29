@@ -4,7 +4,7 @@
 Description [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/nikolamar/bugcrusher)
 ------------
 
-BugCrusher is a tool for sending bug reports to your support. Users in your app can record bug with all the action and how it happens. Once they finish recording, they'll get two files. One file is a screen capture to make sure on which screen was user. Another file is a report with all the logs from console and reports that you created with BugCrusher API. The report can be open later by the developers to check the bug. It is recommended to encrypt this report so the end-user can't get sensitive data. Thanks for using this library 🙌 it and happy hunting 🎯.
+BugCrusher is a tool for sending bug reports to your support. Users in your app can record bug with all the action and how it happens. Once they finish recording, they'll get two files. One file is a screen capture to make sure on which screen was user. Another file is a report with all the logs from console and reports that you created with BugCrusher API. The report can be open later by the developers to check the bug. It is recommended to encrypt this report so the end-user can't get sensitive data. Thanks for using this library 🙌 and happy hunting 🎯.
 
 <br />
 
@@ -14,13 +14,13 @@ Installation
 You can install using `npm`
 
 ```shell
-npm install @bugcrusher/bcjs
+npm install @bug-crusher/client-js
 ```
 
 or `yarn`.
 
 ```shell
-yarn add @bugcrusher/bcjs
+yarn add @bug-crusher/client-js
 ```
 
 <br />
@@ -68,7 +68,7 @@ setModal(false);
 
 ### Save report to file
 
-While you are saving the report you could name the file. It is not required to be named, it has a default.
+While you are saving the report you could name the file. It is not required to be named, it has a default name.
 
 ```js
 client.saveReport('filename');
@@ -76,7 +76,7 @@ client.saveReport('filename');
 
 ### Save screen recording to file
 
-While you are saving the screen recording you could name the file. It is not required to be named, it has a default.
+While you are saving the screen recording you could name the file. It is not required to be named, it has a default name.
 
 ```js
 client.saveVideo('filename');
