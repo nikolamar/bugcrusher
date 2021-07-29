@@ -8,11 +8,11 @@ import type { ReportState } from "./types/main";
 export default async function startRecordingVideo(state: ReportState): Promise<void> {
     // @ts-ignore
     if (!navigator?.mediaDevices?.getDisplayMedia) {
-        throw Error(`Your browser doesn't support screen recording`);
+        throw new Error(`Your browser doesn't support screen recording`);
     }
 
     if (!state.options.video) {
-        throw Error(`Please specify media source. Can't start recording.`);
+        throw new Error(`Please specify media source. Can't start recording.`);
     }
 
     state.isVideoReady = false;
@@ -23,7 +23,7 @@ export default async function startRecordingVideo(state: ReportState): Promise<v
             video: state.options.video
         });
     } catch(err) {
-        throw Error(`You'r browser doesn't support screen recording!`);
+        throw new Error(`You'r browser doesn't support screen recording!`);
     }
 
     state.recorder = new MediaRecorder(state.stream);

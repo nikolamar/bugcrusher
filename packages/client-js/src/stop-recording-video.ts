@@ -7,7 +7,7 @@ import type { ReportState } from "./types/main";
  */
 export default function stopRecordingVideo(state: ReportState): void {
     if (!state.options.video) {
-        throw Error(`Please specify media source, can't stop recording.`);
+        throw new Error(`Please specify media source, can't stop recording.`);
     }
 
     state.recorder.onstop = () => {

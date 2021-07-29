@@ -14,7 +14,7 @@ export default function saveReport(this: ReportState, name: string): void {
     try {
         text = JSON.stringify(this.history);
     } catch(err) {
-        throw Error(`Can't stringify report!`);
+        throw new Error(`Can't stringify report!`);
     }
 
     if (this.options.key) {

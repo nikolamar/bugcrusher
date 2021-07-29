@@ -9,15 +9,19 @@ import type { ReportState } from './types/main';
  */
 export default function saveVideo(this: ReportState, name: string): void {
     if (!this.options.video) {
-        throw Error(`Please specify media source. Can't save screen recording.`);
+        throw new Error(`Please specify media source. Can't save screen recording.`);
     }
 
-    retry(saveVideoBlob.bind(this, name));
+    try {
+        retry(saveVideoBlob.bind(this, name));
+    } catch(err) {
+        console.log(err);
+    }
 }
 
-function saveVideoBlob(this: ReportState, name: string): void {
+function saveVideoBlob(this: ReportState, name: string): any {
     if (!this.isVideoReady) {
-        throw Promise.reject();
+        return Promise.reject();
     }
 
     const blob = new Blob(this.chunks, { type: this.chunks[0].type });
