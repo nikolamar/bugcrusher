@@ -33,6 +33,8 @@ Examples
 When you create a client in options arguments using a key is recommended to encrypt sensitive data but it is not required.
 
 ```js
+import { createClient } from '@bug-crusher/client-js';
+
 const client = createClient({
     key: process.env.CRYPTO_KEY,
     video: { mediaSource: 'screen' },
