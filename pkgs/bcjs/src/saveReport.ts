@@ -15,8 +15,8 @@ export default function saveReport(this: ReportState): void {
         throw Error(`Can't stringify report!`);
     }
 
-    if (this.options.cryptoKey) {
-        text = encryptWithAES(this.options.cryptoKey, text);
+    if (this.options.key) {
+        text = encryptWithAES(this.options.key, text);
     }
 
     const file = new File([text], fileName, {type: 'text/plain;charset=utf-8'});

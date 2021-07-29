@@ -3,8 +3,8 @@ declare module 'console' {
         interface Console extends ReportClient {}
 
         type Data = Record<string, unknown> |  Record<string, unknown>[] | string[] | string;
-        type ReportPushOptions = { type?: string, severity?: 'unknown' | 'critical' | 'major' | 'minor' | 'warning' | 'info' };
-        type ReportOptions = { video?: string };
+        type ReportPushOptions = { type?: string };
+        type ReportOptions = { video?: string, key?: string, };
 
         type ReportClient = {
             stdlog: Console['log'],
@@ -25,7 +25,7 @@ declare module 'console' {
             saveVideo: () => void,
         };
 
-        type ReportState = ReportOptions & {
+        type ReportState = {
             history: Record<string, unknown>[],
             isHooked: boolean,
             isRecording: boolean,
@@ -33,10 +33,7 @@ declare module 'console' {
             stream: any,
             recorder: any,
             chunks: any[],
-            options: {
-                video?: any,
-                cryptoKey?: string,
-            },
+            options: ReportOptions
         };
     }
 }
