@@ -7,7 +7,7 @@ import encryptWithAES from "./utils/encrypt-with-aes";
 export default function saveReport(this: ReportState, name: string): void {
     let text;
 
-    const fileName = name || `reports_${new Date().toLocaleString()}.txt`;
+    const fileName = name && `${name}.txt` || `reports_${new Date().toLocaleString()}.txt`;
 
     try {
         text = JSON.stringify(this.history);

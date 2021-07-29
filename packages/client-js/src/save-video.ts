@@ -20,7 +20,7 @@ function saveVideoBlob(this: ReportState, name: string): void {
 
     const blob = new Blob(this.chunks, { type: this.chunks[0].type });
 
-    const fileName = name || `recording_${new Date().toLocaleString()}.mp4`;
+    const fileName = name && `${name}.mp4` || `recording_${new Date().toLocaleString()}.mp4`;
 
     saveAs(blob, fileName);
 }
