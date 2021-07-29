@@ -23,4 +23,4 @@ yarn-error.log
 node_modules
 
 # Demo project for testing
-/demo
+demo
