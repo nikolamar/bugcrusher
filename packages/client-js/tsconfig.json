@@ -1,12 +1,10 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
+        "target": "ES2015",
+        "module": "ES2020",
         "baseUrl": "./",
-        "outDir": "./lib",
-        "module": "ES2015",
-        "moduleResolution": "node",
-        "target": "es2017",
-        "lib": ["es2017", "dom"],
+        "outDir": "./lib/esm",
         "paths": {},
         "newLine": "LF",
         "sourceMap": true,
@@ -26,7 +24,6 @@
         "strictNullChecks": true,
         "allowJs": false,
         "esModuleInterop": true,
-        "resolveJsonModule": true,
         "skipLibCheck": true,
         "noImplicitThis": true,
         "typeRoots": [

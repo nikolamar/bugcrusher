@@ -1,10 +1,11 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "@bug-crusher/client-js",
-    "main": "lib/index.js",
-    "bin": "lib/index.js",
+    "main": "lib/cjs/index.js",
+    "module": "lib/esm/index.js",
     "scripts": {
-        "build": "rm -rf lib && copyfiles -u 1 \"src/**/*.d.ts\" lib && tsc"
+        "build": "rm -rf lib && copyfiles -u 1 \"src/**/*.d.ts\" \"lib/cjs\" && copyfiles -u 1 \"src/**/*.d.ts\" \"lib/esm\" && npx tsc -p tsconfig.json && npx tsc -p tsconfig-cjs.json",
+        "prepublish": "npm run tsc"
     },
     "license": "ISC",
     "devDependencies": {

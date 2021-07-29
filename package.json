@@ -1,11 +1,10 @@
 {
+    "version": "1.0.1",
+    "name": "@bug-crusher/monorepo",
     "scripts": {
         "build": "yarn workspace @bug-crusher/client-js build",
         "publish": "yarn npm publish --access public"
     },
-    "name": "@bug-crusher/monorepo",
-    "version": "1.0.0",
-    "main": "index.js",
     "author": "Nikola Marjanovic <nikolamar@gmail.com>",
     "repository": {
         "type": "git",
