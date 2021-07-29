@@ -1,4 +1,6 @@
 import decryptWithAES from "./utils/decrypt-with-aes";
+// types
+import type { ReportState } from "./types/main";
 
 /**
  * function: `saveReport`

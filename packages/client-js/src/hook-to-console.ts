@@ -1,28 +1,31 @@
+// types
+import type { ReportClient, ReportState } from "./types/main";
+
 /**
  * function: `hookToConsole`
  * Hooking to functions of console object: `log`, `error`, `warn`.
  * All logs will be pushed to `logs` array, after recording is started.
  */
 export default function hookToConsole(client: ReportClient, state: ReportState): void {
-    console.stdlog = console.log.bind(console);
+    client.stdlog = console.log.bind(console);
 
-    console.stderror = console.error.bind(console);
+    client.stderror = console.error.bind(console);
 
-    console.stdwarn = console.warn.bind(console);
+    client.stdwarn = console.warn.bind(console);
 
     console.log = (...args: string[]) => {
         client.pushReport(args);
-        console.stdlog(...args);
+        client.stdlog(...args);
     };
 
     console.error = (...args: string[]) => {
         client.pushReport(args);
-        console.stderror(...args);
+        client.stderror(...args);
     };
 
     console.warn = (...args: string[]) => {
         client.pushReport(args);
-        console.stdwarn(...args);
+        client.stdwarn(...args);
     };
 
     state.isHooked = true;

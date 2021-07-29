@@ -1,4 +1,6 @@
 import startRecordingVideo from "./start-recording-video";
+// types
+import type { ReportState } from "./types/main";
 
 /**
  * function: `startRecording`

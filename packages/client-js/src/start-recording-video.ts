@@ -1,3 +1,6 @@
+// types
+import type { ReportState } from "./types/main";
+
 /**
  * function: `startRecordingVideo`
  * Simply sets recording of desktop window that user can choose.

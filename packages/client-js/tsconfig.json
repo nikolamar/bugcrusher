@@ -27,7 +27,7 @@
         "skipLibCheck": true,
         "noImplicitThis": true,
         "typeRoots": [
-            "./types",
+            "src/types/main.d.ts",
             "../../node_modules/@types/"
         ]
     },

@@ -8,10 +8,13 @@ import stopRecording from "./stop-recording";
 import saveReport from "./save-report";
 import openReport from "./open-report";
 import saveVideo from "./save-video";
+// types
+import type { ReportClient, ReportOptions, ReportState } from "./types/main";
+
 
 export default function createClient(options: ReportOptions = {}): ReportClient {
 
-    const client: ReportClient = console;
+    const client: any = console;
 
     const state: ReportState = {
         options,
@@ -44,5 +47,5 @@ export default function createClient(options: ReportOptions = {}): ReportClient 
 
     hookToConsole(client, state);
 
-    return client;
+    return client as ReportClient;
 }

@@ -1,5 +1,7 @@
 import sprintf from "./utils/sprintf";
 import isArrayOfStrings from "./utils/is-array-of-strings";
+// types
+import type { Data, ReportPushOptions, ReportState } from "./types/main";
 
 /**
  * function: `pushReport`
