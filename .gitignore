@@ -20,7 +20,7 @@ build
 yarn-error.log
 
 # Node modules
-/node_modules
+node_modules
 
 # Demo project for testing
 /demo
