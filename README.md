@@ -47,6 +47,59 @@ If will start recording all the console logs and your reports. If the client is 
 client.startRecording();
 ```
 
+### Push report
+
+It can push any data you want to an array. You can get this data with the function `getReport` or `saveReport`. Time is added by default and type as `general` for each report. You should push in options the type and set it like `network` or anything you like so you can easily find it. Console reports have type as `console`. Keep in mind you'll have to create a hook to your fetch function to push network report.
+
+```js
+const url = 'https://some-super-long-url-and-bla-bla';
+
+const fetchOptions = {
+    method: 'GET',
+    headers: {
+        Authorization: 'some-jwt-token'
+    }
+};
+
+const report = {
+    reqUrl: url,
+    reqOptions: fetchOptions,
+    resHeaders: [],
+    resRedirected: false,
+    resStatus: 0,
+    resStatusText: '',
+    resType: '',
+    resData: {},
+    resError: {},
+};
+
+/**
+ *Then hook to your fetch function like this
+ */
+fetch(url, fetchOptions)
+    .then((response) => {
+        response.headers.forEach((value, name) => {
+            const header = { [name]: value };
+            report.resHeaders.push(header);
+        });
+
+        report.resRedirected = response.redirected;
+        report.resStatus = response.status;
+        report.resStatusText = response.statusText;
+        report.resType = response.type;
+
+        return response.json()
+    })
+    .then((result) => {
+        report.resData = result;
+        bugCrusher.pushReport(report, { type: 'network' });
+    })
+    .catch(err =>{
+        report.resError = err;
+        bugCrusher.pushReport(report, { type: 'network'});
+    });
+```
+
 ### Stop recording
 
 Stops recording. Video, console logs, and report logs that you are pushing with the `pushReport` function.
