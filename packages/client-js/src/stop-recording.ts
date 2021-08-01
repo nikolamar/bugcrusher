@@ -1,12 +1,12 @@
-import stopRecordingVideo from "./stop-recording-video";
+import { stopRecordingVideo } from "./stop-recording-video";
 // types
-import type { ReportState } from "./types/main";
+import type { ReportState } from "../types/main";
 
 /**
  * function: `stopRecording`
  * Simply set state recording to `false`.
  */
-export default function stopRecording(this: ReportState): void {
+export function stopRecording(this: ReportState): void {
     this.isRecording = false;
 
     stopRecordingVideo(this);

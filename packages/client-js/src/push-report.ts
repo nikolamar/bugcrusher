@@ -1,13 +1,13 @@
-import sprintf from "./utils/sprintf";
-import isArrayOfStrings from "./utils/is-array-of-strings";
+import { sprintf } from "./utils/sprintf";
+import { isArrayOfStrings } from "./utils/is-array-of-strings";
 // types
-import type { Data, ReportPushOptions, ReportState } from "./types/main";
+import type { Data, ReportPushOptions, ReportState } from "../types/main";
 
 /**
  * function: `pushReport`
  * Adds new object data to history list.
  */
-export default function pushReport(
+export function pushReport(
     this: ReportState,
     data: Data,
     options: ReportPushOptions = {

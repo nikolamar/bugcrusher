@@ -1,11 +1,11 @@
 // types
-import type { ReportState } from "./types/main";
+import type { ReportState } from "../types/main";
 
 /**
  * function: `startRecordingVideo`
  * Simply sets recording of desktop window that user can choose.
  */
-export default async function startRecordingVideo(state: ReportState): Promise<void> {
+export async function startRecordingVideo(state: ReportState): Promise<void> {
     // @ts-ignore
     if (!navigator?.mediaDevices?.getDisplayMedia) {
         throw new Error(`Your browser doesn't support screen recording`);

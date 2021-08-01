@@ -1,12 +1,12 @@
-import decryptWithAES from "./utils/decrypt-with-aes";
+import { decryptWithAES } from "./utils/decrypt-with-aes";
 // types
-import type { ReportState } from "./types/main";
+import type { ReportState } from "../types/main";
 
 /**
  * function: `saveReport`
  * Save screen recording and reports from history.
  */
-export default async function openReport(this: ReportState, file: File): Promise<any[]> {
+export async function openReport(this: ReportState, file: File): Promise<any[]> {
     return new Promise((resolve, reject) => {
         if (!file) {
             reject(Error('Please provide file to open.'));

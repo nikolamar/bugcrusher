@@ -1,12 +1,12 @@
-import encryptWithAES from "./utils/encrypt-with-aes";
+import { encryptWithAES }from "./utils/encrypt-with-aes";
 // types
-import type { ReportState } from "./types/main";
+import type { ReportState } from "../types/main";
 
 /**
  * function: `saveReport`
  * Save screen recording and reports from history array to two files.
  */
-export default function saveReport(this: ReportState, name: string): void {
+export function saveReport(this: ReportState, name?: string): void {
     let text;
 
     const fileName = name && `${name}.txt` || `reports_${new Date().toLocaleString()}.txt`;

@@ -1,12 +1,12 @@
-import startRecordingVideo from "./start-recording-video";
+import { startRecordingVideo } from "./start-recording-video";
 // types
-import type { ReportState } from "./types/main";
+import type { ReportState } from "../types/main";
 
 /**
  * function: `startRecording`
  * Simply set state to recording.
  */
-export default function startRecording(this: ReportState): void {
+export function startRecording(this: ReportState): void {
     console.clear();
 
     this.isRecording = true;

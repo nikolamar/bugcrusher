@@ -1,20 +1,19 @@
-import getReport from "./get-report";
-import hookToConsole from "./hook-to-console";
-import isHooked from "./is-hooked";
-import isRecording from "./is-recording";
-import pushReport from "./push-report";
-import startRecording from "./start-recording";
-import stopRecording from "./stop-recording";
-import saveReport from "./save-report";
-import openReport from "./open-report";
-import saveVideo from "./save-video";
+import { getReport } from "./get-report";
+import { hookToConsole } from "./hook-to-console";
+import { isHooked } from "./is-hooked";
+import { isRecording } from "./is-recording";
+import { pushReport } from "./push-report";
+import { startRecording } from "./start-recording";
+import { stopRecording } from "./stop-recording";
+import { saveReport } from "./save-report";
+import { openReport } from "./open-report";
+import { saveVideo } from "./save-video";
 // types
-import type { ReportClient, ReportOptions, ReportState } from "./types/main";
+import type { ReportClient, ReportOptions, ReportState } from "../types/main";
 
+export function createClient(options: ReportOptions = {}): ReportClient {
 
-export default function createClient(options: ReportOptions = {}): ReportClient {
-
-    const client: any = console;
+    const client = console as ReportClient & Console;
 
     const state: ReportState = {
         options,
@@ -47,5 +46,5 @@ export default function createClient(options: ReportOptions = {}): ReportClient 
 
     hookToConsole(client, state);
 
-    return client as ReportClient;
+    return client;
 }

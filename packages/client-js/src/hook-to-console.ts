@@ -1,12 +1,12 @@
 // types
-import type { ReportClient, ReportState } from "./types/main";
+import type { ReportClient, ReportState } from "../types/main";
 
 /**
  * function: `hookToConsole`
  * Hooking to functions of console object: `log`, `error`, `warn`.
  * All logs will be pushed to `logs` array, after recording is started.
  */
-export default function hookToConsole(client: ReportClient, state: ReportState): void {
+export function hookToConsole(client: ReportClient, state: ReportState): void {
     client.stdlog = console.log.bind(console);
 
     client.stderror = console.error.bind(console);
