@@ -1,8 +1,8 @@
-export type Data = Record<string, unknown> |  Record<string, unknown>[] | string[] | string;
-export type ReportPushOptions = { type?: string };
-export type ReportOptions = { video?: string, key?: string, };
+type Data = Record<string, unknown> |  Record<string, unknown>[] | string[] | string;
+type ReportPushOptions = { type?: string };
+type ReportOptions = { video?: any, key?: string, };
 
-export type ReportClient = {
+type ReportClient = {
     stdlog: Console['log'],
     stderror: Console['error'],
     stdwarn: Console['warn'],
@@ -16,12 +16,12 @@ export type ReportClient = {
 
     pushReport: (data: Data, options?: ReportPushOptions) => void,
     getReport: () => Record<string, unknown>[],
-    saveReport: () => void,
-    openReport: () => any,
-    saveVideo: () => void,
+    saveReport: (name?: string) => void,
+    saveVideo: (name?: string) => void,
+    openReport: (file: File) => any,
 }
 
-export type ReportState = {
+type ReportState = {
     history: Record<string, unknown>[],
     isHooked: boolean,
     isRecording: boolean,
@@ -31,3 +31,5 @@ export type ReportState = {
     chunks: any[],
     options: ReportOptions
 };
+
+export function createClient(options?: ReportOptions): ReportClient;

@@ -3,12 +3,16 @@
     "name": "@bug-crusher/client-js",
     "main": "./lib/cjs/index.js",
     "module": "./lib/esm/index.js",
+    "types": "./lib/types/main.d.ts",
     "scripts": {
-        "build": "rm -rf lib && copyfiles -u 1 \"src/**/*.d.ts\" \"lib/cjs\" && copyfiles -u 1 \"src/**/*.d.ts\" \"lib/esm\" && npx tsc -p tsconfig.json && npx tsc -p tsconfig-cjs.json"
+        "build": "rm -rf lib && copyfiles -u 1 \"types/**/*.d.ts\" \"lib/types/\" && npx tsc -p tsconfig.json && npx tsc -p tsconfig-cjs.json"
     },
     "license": "ISC",
+    "dependencies": {
+        "crypto-js": "^4.1.1",
+        "file-saver": "^2.0.5"
+    },
     "devDependencies": {
-        "@snowpack/plugin-typescript": "^1.2.1",
         "@types/crypto-js": "^4.0.2",
         "@types/dom-mediacapture-record": "^1.0.10",
         "@types/file-saver": "^2.0.3",
@@ -21,12 +25,7 @@
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-jest": "^24.4.0",
         "prettier": "^2.3.2",
-        "snowpack": "^3.8.3",
         "typescript": "^4.3.5"
-    },
-    "dependencies": {
-        "crypto-js": "^4.1.1",
-        "file-saver": "^2.0.5"
     },
     "files": [
         "lib"

@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "newLine": "LF",
+        "paths": {},
+        "strict": true,
+        "noLib": false,
+        "pretty": true,
+        "allowJs": false,
+        "sourceMap": true,
+        "incremental": true,
+        "declaration": true,
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "removeComments": false,
+        "esModuleInterop": true,
+        "strictNullChecks": true,
+        "noImplicitReturns": true,
+        "noUnusedParameters": true,
+        "allowUnreachableCode": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importsNotUsedAsValues": "error",
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true
+    }
+}

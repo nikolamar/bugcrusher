@@ -1,36 +1,11 @@
 {
-    "compileOnSave": false,
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "target": "ES2015",
         "module": "ES2020",
+        "target": "ES2015",
         "baseUrl": "./",
         "outDir": "./lib/esm",
-        "paths": {},
-        "newLine": "LF",
-        "sourceMap": true,
-        "declaration": true,
-        "removeComments": false,
-        "noLib": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "forceConsistentCasingInFileNames": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "pretty": true,
-        "allowUnreachableCode": false,
-        "incremental": true,
-        "strictNullChecks": true,
-        "allowJs": false,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "noImplicitThis": true,
-        "typeRoots": [
-            "src/types/main.d.ts",
-            "../../node_modules/@types/"
-        ]
     },
-    "include": ["src/"],
+    "include": ["src/", "types/"],
     "exclude": ["node_modules"]
 }
