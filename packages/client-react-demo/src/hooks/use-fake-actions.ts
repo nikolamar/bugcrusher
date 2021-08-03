@@ -13,32 +13,31 @@ export function useFakeActions() {
     const [count, setCount] = useState(0);
     const [type, setType] = useState('');
 
-    let rnd = 0;
-
     useEffect(() => {
         const timer = setTimeout(() => {
-            rnd = getRandomArbitrary(0, 4);
-            const consoleMsg = count + 1 + ':' + types[rnd];
+            const random = getRandomArbitrary(0, 4);
+            const nextNumber = count + 1;
+            const consoleMsg = nextNumber + ':' + types[random];
 
-            if (types[rnd] === 'network') {
+            if (types[random] === 'network') {
                 console.log(consoleMsg);
-                fetch('https://catfact.ninja/fact').then(res => res.json()).then(data => data);
+                fetch('https://catfact.ninja/fact').then(res => res.json()).then(data => data).catch(err => err);
             }
 
-            if (types[rnd] === 'console:error') {
+            if (types[random] === 'console:error') {
                 console.error(consoleMsg);
             }
 
-            if (types[rnd] === 'console:warn') {
+            if (types[random] === 'console:warn') {
                 console.warn(consoleMsg);
             }
 
-            if (types[rnd] === 'console:info') {
+            if (types[random] === 'console:info') {
                 console.info(consoleMsg);
             }
 
-            setType(types[rnd]);
-            setCount(count + 1);
+            setType(types[random]);
+            setCount(nextNumber);
         }, 1000);
         return () => clearTimeout(timer);
     }, [count, setCount]);
