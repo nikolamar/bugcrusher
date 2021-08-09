@@ -12,7 +12,7 @@ type ReportClient = {
     isHooked: () => boolean,
     isRecording: () => boolean,
 
-    startRecording: (options: { video: boolean }) => void,
+    startRecording: (options?: { video: boolean }) => void,
     stopRecording: () => void,
 
     pushReport: (data: Data, options?: ReportPushOptions) => void,
@@ -20,13 +20,17 @@ type ReportClient = {
     saveReport: (name?: string) => void,
     saveVideo: (name?: string) => void,
     openReport: (file: File) => any,
-    on: (event: 'reportchange', callback: (val: any) => void) => void,
+    on: (
+        event: 'reportchange' | 'recordchange',
+        callback: (val: any
+    ) => void) => void,
 };
 
 type ReportState = {
     report: Record<string, unknown>[],
     isHooked: boolean,
     isRecording: boolean,
+    isRecordingVideo: boolean,
     isVideoReady: boolean,
     stream: any,
     recorder: any,
