@@ -13,7 +13,7 @@ export function useTheme(): UseThemeReturn {
 
     // handlers
     const setMode = (mode: Theme[string]) => {
-        setStorage('theme', mode)
+        setStorage(currentTheme, mode)
         setTheme(mode);
     };
 
