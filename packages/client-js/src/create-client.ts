@@ -20,6 +20,7 @@ export function createClient(options: ReportOptions = {}): ReportClient {
         report: [],
         isHooked: false,
         isRecording: false,
+        isRecordingVideo: false,
         isVideoReady: false,
         stream: {},
         recorder: {},

@@ -12,4 +12,6 @@ export function stopRecordingVideo(state: ReportState): void {
     };
 
     state.recorder.stop();
+
+    state.isRecordingVideo = false;
 }

@@ -30,4 +30,5 @@ export async function startRecordingVideo(state: ReportState): Promise<void> {
     state.recorder.start();
 
     state.isRecording = true;
+    state.isRecordingVideo = true;
 }
