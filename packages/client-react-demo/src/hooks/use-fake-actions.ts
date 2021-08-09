@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getRandomArbitrary } from '../utils/get-random-arbitrary';
+import { client } from '../app';
 
 const types = [
     'network',
@@ -15,13 +16,41 @@ export function useFakeActions() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            const random = getRandomArbitrary(0, 4);
+            const random = getRandomArbitrary(0, types.length);
             const nextNumber = count + 1;
             const consoleMsg = nextNumber + ':' + types[random];
 
             if (types[random] === 'network') {
-                console.log(consoleMsg);
-                fetch('https://catfact.ninja/fact').then(res => res.json()).then(data => data).catch(err => err);
+                const reqUrl = 'https://catfact.ninja/fact';
+                const reqOptions = { method: 'GET' };
+
+                const report: any = {
+                    reqUrl,
+                    reqOptions,
+                };
+
+                fetch(reqUrl)
+                    .then(res => {
+                        res.headers.forEach((value, name) => {
+                            const header = { [name]: value };
+                            report.resHeaders.push(header);
+                        });
+                        report.resRedirected = res.redirected;
+                        report.resStatus = res.status;
+                        report.resOk = res.ok;
+                        report.resStatusText = res.statusText;
+                        report.resType = res.type;
+                        return res.json();
+                    })
+                    .then(data => {
+                        report.resData = data;
+                        return data;
+                    })
+                    .catch(err => {
+                        report.resError = err;
+                    });
+
+                client.pushReport(report);
             }
 
             if (types[random] === 'console:error') {
