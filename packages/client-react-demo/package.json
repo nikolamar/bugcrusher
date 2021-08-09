@@ -1,6 +1,7 @@
 {
     "version": "1.0.1",
     "name": "@bug-crusher/client-react-demo",
+    "typings": "./lib/types/main.d.ts",
     "scripts": {
         "start": "snowpack dev",
         "build": "snowpack build",
@@ -10,9 +11,11 @@
     },
     "license": "ISC",
     "dependencies": {
+        "@bug-crusher/client-js": "^1.0.1",
         "@bug-crusher/client-react": "^1.0.1",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "styled-components": "^5.3.0"
     },
     "devDependencies": {
         "@snowpack/plugin-dotenv": "^2.1.0",
