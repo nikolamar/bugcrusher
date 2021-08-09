@@ -8,8 +8,8 @@ import { stopRecording } from "./stop-recording";
 import { saveReport } from "./save-report";
 import { openReport } from "./open-report";
 import { saveVideo } from "./save-video";
-// types
-import type { ReportClient, ReportOptions, ReportState } from "../types/main";
+import { addEvents } from './add-events';
+import { on } from './on';
 
 export function createClient(options: ReportOptions = {}): ReportClient {
 
@@ -17,13 +17,14 @@ export function createClient(options: ReportOptions = {}): ReportClient {
 
     const state: ReportState = {
         options,
-        history: [],
+        report: [],
         isHooked: false,
         isRecording: false,
         isVideoReady: false,
         stream: {},
         recorder: {},
         chunks: [],
+        events: {},
     };
 
     client.pushReport = pushReport.bind(state);
@@ -44,7 +45,11 @@ export function createClient(options: ReportOptions = {}): ReportClient {
 
     client.isHooked = isHooked.bind(state);
 
+    client.on = on.bind(state);
+
     hookToConsole(client, state);
+
+    addEvents(state);
 
     return client;
 }
