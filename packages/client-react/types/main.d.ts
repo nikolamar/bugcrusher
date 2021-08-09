@@ -1,9 +1,9 @@
 // react components props
-type ToasterProps = {
-    children: any,
+type ToastProps = {
+    children: React.ReactChild,
 };
 
-type ToastProps = {
+type ToasterProps = {
     children: React.ReactChild,
 };
 
@@ -25,4 +25,7 @@ type UseThemeReturn = [
 
 declare module '@bug-crusher/client-react' {
     function useWithClient(client: any): any;
+    const Toast: React.FC<ToastProps>;
+    const Toaster: React.FC<ToasterProps>;
+    const HiddenButton: React.FC<HiddenButtonProps>;
 }
