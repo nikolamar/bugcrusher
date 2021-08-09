@@ -4,6 +4,7 @@ type ReportOptions = { video?: any, key?: string, };
 
 type ReportClient = {
     stdlog: Console['log'],
+    stdinfo: Console['info'],
     stderror: Console['error'],
     stdwarn: Console['warn'],
 
@@ -11,7 +12,7 @@ type ReportClient = {
     isHooked: () => boolean,
     isRecording: () => boolean,
 
-    startRecording: () => void,
+    startRecording: (options: { video: boolean }) => void,
     stopRecording: () => void,
 
     pushReport: (data: Data, options?: ReportPushOptions) => void,
@@ -19,17 +20,21 @@ type ReportClient = {
     saveReport: (name?: string) => void,
     saveVideo: (name?: string) => void,
     openReport: (file: File) => any,
-}
+    on: (event: 'reportchange', callback: (val: any) => void) => void,
+};
 
 type ReportState = {
-    history: Record<string, unknown>[],
+    report: Record<string, unknown>[],
     isHooked: boolean,
     isRecording: boolean,
     isVideoReady: boolean,
     stream: any,
     recorder: any,
     chunks: any[],
-    options: ReportOptions
+    options: ReportOptions,
+    events: Record<string, (val: any) => void>,
 };
 
-export function createClient(options?: ReportOptions): ReportClient;
+declare module '@bug-crusher/client-js' {
+    function createClient(options: ReportOptions): ReportClient;
+}
