@@ -1,1 +1,1 @@
-export { ReporterButton } from './components/reporter-button';
+export { useWithClient } from './hooks/use-with-client';

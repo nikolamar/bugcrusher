@@ -1,5 +1,28 @@
-import React from 'react';
+// react components props
+type ToasterProps = {
+    children: any,
+};
 
-export const ReporterButton: React.FC<any>;
+type ToastProps = {
+    children: React.ReactChild,
+};
 
-export type Theme = Record<string, { colors: { text: string, body: string }}>;
+type HiddenButtonProps = {
+    width?: string,
+    bottom?: string,
+    children: string | React.ReactChild,
+    onClick?: (val: MouseEventHandler<HTMLDivElement>) => void,
+};
+
+// theme typings
+type Theme = Record<string, { colors: { text: string, body: string }}>;
+
+type UseThemeReturn = [
+    theme: Theme[string],
+    themeLoaded: boolean,
+    setMode: (theme: Theme[string]) => void
+];
+
+declare module '@bug-crusher/client-react' {
+    function useWithClient(client: any): any;
+}

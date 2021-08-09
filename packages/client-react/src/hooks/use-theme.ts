@@ -1,29 +1,27 @@
 import { useEffect, useState } from 'react';
 import { setStorage, getStorage } from '../utils/storage';
-// types
-import type { Theme } from 'types/main';
+import { allThemes, currentTheme } from '../config/static';
 
-type RetUseTheme = {
-    theme: Theme[string],
-    themeLoaded: boolean,
-    setMode: (theme: Theme[string]) => void
-};
+export function useTheme(): UseThemeReturn {
 
-export function useTheme(): RetUseTheme {
-    const themes = getStorage<Theme>('all-themes');
+    // get all themes from storage
+    const themes = getStorage<Theme>(allThemes);
+
+    // hooks
     const [theme, setTheme] = useState<Theme[string]>(themes?.default as Theme[string]);
     const [themeLoaded, setThemeLoaded] = useState(false);
 
+    // handlers
     const setMode = (mode: Theme[string]) => {
         setStorage('theme', mode)
         setTheme(mode);
     };
 
     useEffect(() =>{
-        const localTheme = getStorage<Theme[string]>('theme');
+        const localTheme = getStorage<Theme[string]>(currentTheme);
         localTheme ? setTheme(localTheme) : setTheme(themes?.default as Theme[string]);
         setThemeLoaded(true);
     }, []);
 
-    return { theme, themeLoaded, setMode };
+    return [theme, themeLoaded, setMode];
 }
