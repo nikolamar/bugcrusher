@@ -6,17 +6,16 @@ import { Page } from './components/page';
 import { Header } from './components/header';
 // Bug crusher components
 import { createClient } from '@bug-crusher/client-js';
-import { useWithClient } from '@bug-crusher/client-react';
+import { useWithClient, HiddenButton, Toaster, Toast } from '@bug-crusher/client-react';
 
 export const client = createClient({
     key: 'secretkey',
-    video: { mediaSource: 'screen' },
 });
 
 export function App() {
 
     const [count, type] = useFakeActions();
-    const [button, data] = useWithClient(client);
+    const [report, isRecording] = useWithClient(client);
 
     return (
         <Page>
@@ -26,8 +25,15 @@ export function App() {
                 {type && <p>Fake user action: <code>{count}:{type}</code></p>}
                 <AppLogo/>
             </Header>
-            {button}
-            {data}
+            <HiddenButton
+                width='200px' bottom='50px'
+                onClick={isRecording ? client.stopRecording : client.startRecording}
+            >
+                {isRecording ? 'Stop Recording' : 'Start Recording'}
+            </HiddenButton>
+            <Toaster>
+                {report.map((item: any) => <Toast key={item.time}>{item.time}</Toast>)}
+            </Toaster>
         </Page>
     );
 }
