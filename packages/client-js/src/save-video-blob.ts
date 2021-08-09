@@ -1,6 +1,4 @@
 import { saveAs } from 'file-saver';
-// types
-import type { ReportState } from '../types/main';
 
 /**
  * function: `saveVideoBlob`

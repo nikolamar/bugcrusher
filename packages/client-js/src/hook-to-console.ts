@@ -1,6 +1,3 @@
-// types
-import type { ReportClient, ReportState } from "../types/main";
-
 /**
  * function: `hookToConsole`
  * Hooking to functions of console object: `log`, `error`, `warn`.
@@ -8,10 +5,14 @@ import type { ReportClient, ReportState } from "../types/main";
  */
 export function hookToConsole(client: ReportClient, state: ReportState): void {
     client.stdlog = console.log.bind(console);
-
+    client.stdinfo = console.info.bind(console);
     client.stderror = console.error.bind(console);
-
     client.stdwarn = console.warn.bind(console);
+
+    console.info = (...args: string[]) => {
+        client.pushReport(args);
+        client.stdinfo(...args);
+    };
 
     console.log = (...args: string[]) => {
         client.pushReport(args);

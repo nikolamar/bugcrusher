@@ -1,6 +1,3 @@
-// types
-import type { ReportState } from "../types/main";
-
 /**
  * function: `startRecordingVideo`
  * Simply sets recording of desktop window that user can choose.
@@ -31,4 +28,6 @@ export async function startRecordingVideo(state: ReportState): Promise<void> {
     state.recorder.ondataavailable = (e: BlobEvent) => state.chunks.push(e.data);
 
     state.recorder.start();
+
+    state.isRecording = true;
 }

@@ -1,7 +1,5 @@
 import { retry } from './utils/retry';
 import { saveVideoBlob } from './save-video-blob';
-// types
-import type { ReportState } from '../types/main';
 
 /**
  * function: `saveVideo`

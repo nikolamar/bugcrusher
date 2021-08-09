@@ -1,6 +1,4 @@
 import { stopRecordingVideo } from "./stop-recording-video";
-// types
-import type { ReportState } from "../types/main";
 
 /**
  * function: `stopRecording`
