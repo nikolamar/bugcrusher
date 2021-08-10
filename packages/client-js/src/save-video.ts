@@ -10,9 +10,5 @@ export function saveVideo(this: ReportState, name?: string): void {
         throw new Error(`Please specify media source. Can't save screen recording.`);
     }
 
-    try {
-        retry(saveVideoBlob.bind(this, name));
-    } catch(err) {
-        console.log(err);
-    }
+    retry(saveVideoBlob.bind(this, name));
 }
