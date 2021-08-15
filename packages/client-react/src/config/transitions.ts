@@ -1,5 +1,5 @@
 export const transitions = {
-    transition_slow: '0.5s ease',
-    transition_medium: '0.35s ease',
-    transition_fast: '0.2s ease',
+    transition_slow: 'all 0.5s ease',
+    transition_medium: 'all 0.35s ease',
+    transition_fast: 'all 0.2s ease',
 };

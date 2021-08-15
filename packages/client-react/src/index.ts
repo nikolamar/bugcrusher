@@ -1,4 +1,2 @@
-export { Toast } from './components/toast';
-export { Toaster } from './components/toaster';
-export { HiddenButton } from './components/hidden-button';
+export { BugCrusher } from './components/bug-crusher';
 export { useWithClient } from './hooks/use-with-client';

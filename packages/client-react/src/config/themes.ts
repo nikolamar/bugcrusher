@@ -1,10 +1,8 @@
 import { colors } from './colors';
-import { animations } from './animations';
 import { transitions } from './transitions';
 
 export const themes = {
     default: {
-        animation: animations.animation_fast,
         transition: transitions.transition_fast,
         colors: {
             text: colors.color_white_1,
@@ -13,7 +11,6 @@ export const themes = {
         }
     },
     light: {
-        animation: animations.animation_fast,
         transition: transitions.transition_fast,
         colors: {
             text: colors.color_white_1,
@@ -22,7 +19,6 @@ export const themes = {
         }
     },
     dark: {
-        animation: animations.animation_fast,
         transition: transitions.transition_fast,
         colors: {
             text: colors.color_black_1,

@@ -1,17 +1,8 @@
 // react components props
-type ToastProps = {
-    children: React.ReactChild,
-};
-
-type ToasterProps = {
-    children: React.ReactChild,
-};
-
-type HiddenButtonProps = {
-    width?: string,
-    bottom?: string,
-    children: string | React.ReactChild,
-    onClick?: (val: MouseEventHandler<HTMLDivElement>) => void,
+type BugCrushserProps = {
+    children: any,
+    buttonLabel: string,
+    recordingLabel: string
 };
 
 // theme typings
@@ -25,7 +16,5 @@ type UseThemeReturn = [
 
 declare module '@bug-crusher/client-react' {
     function useWithClient(client: any): any;
-    const Toast: React.FC<ToastProps>;
-    const Toaster: React.FC<ToasterProps>;
-    const HiddenButton: React.FC<HiddenButtonProps>;
+    const BugCrusher: React.FC<any>;
 }
