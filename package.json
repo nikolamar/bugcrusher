@@ -2,7 +2,8 @@
     "version": "1.0.1",
     "name": "@bug-crusher/monorepo",
     "scripts": {
-        "build": "yarn workspace @bug-crusher/client-js build",
+        "watch": "yarn workspaces foreach -p run watch",
+        "build": "yarn workspaces foreach -p run build",
         "publish": "yarn npm publish --access public"
     },
     "author": "Nikola Marjanovic <nikolamar@gmail.com>",
@@ -16,7 +17,9 @@
     "homepage": "https://github.com/nikolamar/bugcrusher#readme",
     "license": "ISC",
     "workspaces": [
-        "packages/*"
+        "packages/client-js",
+        "packages/client-react",
+        "examples/react"
     ],
     "private": true
 }

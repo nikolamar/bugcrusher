@@ -12,7 +12,6 @@ build
 # Logs
 /logs
 .log
-yarn-error.log
 
 # Node modules
 node_modules
@@ -20,5 +19,9 @@ node_modules
 # Snowpack
 .snowpack
 
-# Demo project for testing
-demo
+# Test
+verifier
+
+# Yarn
+.yarn/cache
+yarn-error.log
