@@ -5,28 +5,35 @@
     "module": "./lib/esm/index.js",
     "typings": "./lib/types/main.d.ts",
     "scripts": {
-        "build": "rm -rf lib && copyfiles -u 1 \"types/**/*.d.ts\" \"lib/types/\" && npx tsc -p tsconfig.json && npx tsc -p tsconfig-cjs.json",
-        "watch": "npx tsc -w"
+        "build": "yarn remove:lib && yarn copy:types && yarn build:esm && yarn build:cjs && yarn build:css",
+        "build:esm": "npx tsc -p tsconfig.json",
+        "build:cjs": "npx tsc -p tsconfig-cjs.json",
+        "build:css": "npx lessc src/styles.less lib/styles.css",
+        "remove:lib": "rm -rf lib",
+        "copy:types": "npx copyfiles -u 1 \"types/**/*.d.ts\" \"lib/types/\"",
+        "watch": "concurrently \"yarn watch:ts\" \"yarn watch:less\"",
+        "watch:ts": "npx tsc -w",
+        "watch:less": "npx less-watch-compiler src lib styles.less"
     },
     "license": "ISC",
     "peerDependencies": {
         "react": "*",
         "react-dom": "*"
     },
-    "dependencies": {
-        "styled-components": "^5.3.0"
-    },
     "devDependencies": {
+        "@bug-crusher/client-js": "^1.0.1",
         "@types/react": "^17.0.15",
         "@types/react-dom": "^17.0.9",
-        "@types/styled-components": "^5.1.11",
         "@typescript-eslint/eslint-plugin": "^4.28.5",
         "@typescript-eslint/parser": "^4.28.5",
+        "concurrently": "^6.2.1",
         "copyfiles": "^2.4.1",
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^18.2.1",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-jest": "^24.4.0",
+        "less": "^4.1.1",
+        "less-watch-compiler": "^1.16.2",
         "prettier": "^2.3.2",
         "typescript": "^4.3.5"
     },

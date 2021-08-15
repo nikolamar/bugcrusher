@@ -5,8 +5,13 @@
     "module": "./lib/esm/index.js",
     "typings": "./lib/types/main.d.ts",
     "scripts": {
-        "build": "rm -rf lib && copyfiles -u 1 \"types/**/*.d.ts\" \"lib/types/\" && npx tsc -p tsconfig.json && npx tsc -p tsconfig-cjs.json",
-        "watch": "npx tsc -w"
+        "build": "yarn remove:lib && yarn copy:types && yarn build:esm && yarn build:cjs",
+        "build:esm": "npx tsc -p tsconfig.json",
+        "build:cjs": "npx tsc -p tsconfig-cjs.json",
+        "remove:lib": "rm -rf lib",
+        "copy:types": "npx copyfiles -u 1 \"types/**/*.d.ts\" \"lib/types/\"",
+        "watch": "yarn watch:ts",
+        "watch:ts": "npx tsc -w"
     },
     "license": "ISC",
     "dependencies": {
