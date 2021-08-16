@@ -1,14 +1,21 @@
 import { saveAs } from 'file-saver';
+import { reportPrefix } from './config/static';
 import { encryptWithAES }from "./utils/encrypt-with-aes";
+import { setStorage } from './utils/storage';
 
 /**
  * function: `saveReport`
  * Save screen recording and reports from state.report array to two files.
  */
-export function saveReport(this: ReportState, name?: string): void {
+export function saveReport(this: ReportState, name?: string, type = 'file'): void {
+    if (type === 'localstorage') {
+        setStorage(name || reportPrefix, this.report);
+        return;
+    }
+
     let text;
 
-    const fileName = name && `${name}.txt` || `reports_${new Date().toLocaleString()}.txt`;
+    const fileName = name && `${name}.txt` || `${reportPrefix}${new Date().toLocaleString()}.txt`;
 
     try {
         text = JSON.stringify(this.report);
