@@ -1,0 +1,74 @@
+.bc-container {
+    display: flex;
+    position: fixed;
+    user-select: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    overflow: auto;
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    }
+
+    &.button {
+        width: 200px;
+        height: 40px;
+        bottom: 20px;
+        left: calc(-200px + 20px);
+        line-height: 40px;
+        cursor: pointer;
+        color: @color-secondary;
+        background: @color-primary;
+        border-radius: 25px;
+
+        &:hover {
+            left: -20px;
+            height: 50px;
+        }
+    }
+
+    &.recording {
+        margin: auto;
+        min-width: 300px;
+        height: 80px;
+        z-index: 101;
+        bottom: 20px;
+        left: 50%;
+        font-size: 1.6rem;
+        transform: translate(-50%, 0);
+        cursor: pointer;
+        color: @color-primary;
+        background: @color-secondary;
+        border-radius: 10px;
+        animation: flickerAnimation 1s infinite;
+
+        @keyframes flickerAnimation {
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+        }
+    }
+
+    &.event {
+        width: 90%;
+        margin: auto;
+        bottom: 40px;
+        font-size: 1.4rem;
+        left: 50%;
+        cursor: pointer;
+        transform: translate(-50%, 0);
+        border-radius: 15px;
+        padding: 20px;
+        background: @color-secondary;
+
+        &:hover {
+            width: 95%;
+        }
+    }
+}

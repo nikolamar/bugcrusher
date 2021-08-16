@@ -1,0 +1,38 @@
+{
+    "version": "1.0.1",
+    "name": "@bug-crusher/client-styles",
+    "main": "lib/styles.css",
+    "scripts": {
+        "build": "yarn build:css",
+        "build:css": "npx lessc src/styles.less lib/styles.css",
+        "remove:lib": "rm -rf lib",
+        "watch": "yarn watch:less",
+        "watch:less": "npx less-watch-compiler src lib styles.less"
+    },
+    "license": "ISC",
+    "devDependencies": {
+        "copyfiles": "^2.4.1",
+        "less": "^4.1.1",
+        "less-watch-compiler": "^1.16.2"
+    },
+    "files": [
+        "lib"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "bug",
+        "crusher",
+        "styles"
+    ],
+    "author": "Nikola Marjanovic <nikola.marjanovic@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nikolamar/bugcrusher.git"
+    },
+    "bugs": {
+        "url": "https://github.com/nikolamar/bugcrusher/issues"
+    },
+    "homepage": "https://github.com/nikolamar/bugcrusher#readme"
+}
