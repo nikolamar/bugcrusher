@@ -1,4 +1,5 @@
 import { saveAs } from 'file-saver';
+import { videoPrefix } from './config/static';
 
 /**
  * function: `saveVideoBlob`
@@ -11,7 +12,7 @@ export function saveVideoBlob(this: ReportState, name?: string): any {
 
     const blob = new Blob(this.chunks, { type: this.chunks[0].type });
 
-    const fileName = name && `${name}.mp4` || `recording_${new Date().toLocaleString()}.mp4`;
+    const fileName = name && `${name}.mp4` || `${videoPrefix}${new Date().toLocaleString()}.mp4`;
 
     saveAs(blob, fileName);
 }
