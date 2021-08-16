@@ -19,6 +19,7 @@
     "workspaces": [
         "packages/client-js",
         "packages/client-react",
+        "packages/client-styles",
         "examples/react"
     ],
     "private": true
