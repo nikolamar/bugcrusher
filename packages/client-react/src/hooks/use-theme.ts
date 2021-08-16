@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { setStorage, getStorage } from '../utils/storage';
 import { allThemes, currentTheme } from '../config/static';
+import { themes as cacheThemes } from '../config/themes';
 
 export function useTheme(): UseThemeReturn {
+
+    setStorage(allThemes, cacheThemes);
 
     // get all themes from storage
     const themes = getStorage<Theme>(allThemes);
