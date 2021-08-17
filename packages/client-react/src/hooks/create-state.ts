@@ -5,8 +5,7 @@ export function createState(initial: string) {
 
     const handleClick = () => {
         state === 'button' && setState('recording');
-        state === 'recording' && setState('event');
-        state === 'event' && setState('button');
+        state === 'recording' && setState('report');
     }
 
     return [state, handleClick as any];
