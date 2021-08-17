@@ -13,6 +13,9 @@ export function BugCrusher(props: BugCrushserProps): React.ReactElement {
         <div
             onClick={handleClick}
             className={className}
+            x-button-text={props.buttonText || 'Start Recording'}
+            x-recording-text={props.recordingText || 'Recording'}
+            x-recording-hover-text='Stop'
         >
             {element}
         </div>

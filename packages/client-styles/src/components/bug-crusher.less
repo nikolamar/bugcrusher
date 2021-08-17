@@ -1,22 +1,20 @@
-.bc-container {
-    display: flex;
-    position: fixed;
-    user-select: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    transition: all 0.3s ease;
-    font-size: 1.2rem;
+.@{prefix}-container {
     z-index: 100;
-    align-items: center;
-    justify-content: center;
+    position: fixed;
+    transition: all 0.3s ease;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
-    overflow: auto;
 
     &:hover {
         box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     }
 
     &.button {
+        display: flex;
+        user-select: none;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        align-items: center;
+        justify-content: center;
         width: 200px;
         height: 40px;
         bottom: 20px;
@@ -31,22 +29,45 @@
             left: -20px;
             height: 50px;
         }
+
+        &::before {
+            content: attr(x-button-text);
+        }
     }
 
     &.recording {
-        margin: auto;
-        min-width: 300px;
-        height: 80px;
+        display: flex;
+        user-select: none;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 60px;
         z-index: 101;
         bottom: 20px;
         left: 50%;
-        font-size: 1.6rem;
+        font-size: 150%;
         transform: translate(-50%, 0);
         cursor: pointer;
         color: @color-primary;
         background: @color-secondary;
         border-radius: 10px;
         animation: flickerAnimation 1s infinite;
+
+        &:hover {
+            animation: none;
+            color: @color-secondary;
+            background: @color-primary;
+
+            &::before {
+                content: attr(x-recording-hover-text);
+            }
+        }
+
+        &::before {
+            content: attr(x-recording-text);
+        }
 
         @keyframes flickerAnimation {
             0%   { opacity:1; }
@@ -55,20 +76,16 @@
         }
     }
 
-    &.event {
-        width: 90%;
-        margin: auto;
-        bottom: 40px;
-        font-size: 1.4rem;
+    &.report {
+        height: calc(100% - 200px);
+        width: calc(100% - 200px);
+        font-size: 100%;
         left: 50%;
+        top: 50%;
         cursor: pointer;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, -50%);
         border-radius: 15px;
-        padding: 20px;
         background: @color-secondary;
-
-        &:hover {
-            width: 95%;
-        }
+        padding: 20px;
     }
 }
