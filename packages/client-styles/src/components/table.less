@@ -1,16 +1,26 @@
-.bc-table {
-    width: 100%;
-    transition: all 0.3s ease;
+.@{prefix}-table {
+    position: absolute;
+    left: 20px; right: 20px;
+    top: 20px; bottom: 20px;
+    overflow: auto;
+    scrollbar-width: thin;
+
+    table {
+        width: 100%;
+        transition: all 0.3s ease;
+        overflow: auto;
+    }
 
     td, th {
         text-align: left;
-        font-size: 18px;
-        color: @color-primary-text;
+        font-size: 100%;
         user-select: none;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
         padding: .625em;
+        color: @color-primary-text;
+        background: @color-secondary;
     }
 
     th {
@@ -18,17 +28,12 @@
         color: @color-primary-text;
     }
 
-    // tr {
-    //     border-bottom: 1px solid @color-secondary-text;
-    // }
-
-    // tr:first-child {
-    //     border-bottom: none;
-    // }
-
-    // tr:last-child {
-    //     border-bottom: none;
-    // }
+    thead {
+        top: 60px;
+        position: sticky;
+        z-index: 1;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+    }
 
     @media screen and (max-width: 600px) {
         thead {
@@ -44,11 +49,12 @@
         tr {
             display: block;
             margin-bottom: .625em;
+            border-bottom: 1px solid @color-secondary-text;
         }
 
         td {
             display: block;
-            font-size: .8em;
+            font-size: 80%;
             text-align: right;
         }
 
