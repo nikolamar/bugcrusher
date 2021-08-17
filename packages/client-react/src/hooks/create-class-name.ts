@@ -2,8 +2,8 @@ import React from 'react';
 
 export function createClassName(state: string) {
     return React.useMemo(() => {
-        const classNameName = `bc-container ${state}`;
+        const className = `bc-container ${state}`;
 
-        return [classNameName]
+        return [className]
     }, [state]);
 }
