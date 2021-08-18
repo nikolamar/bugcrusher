@@ -8,7 +8,8 @@
         box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     }
 
-    &.button {
+    // button when is user
+    &.user, &.admin {
         display: flex;
         user-select: none;
         white-space: nowrap;
@@ -31,10 +32,18 @@
         }
 
         &::before {
-            content: attr(x-button-text);
+            content: attr(x-user);
         }
     }
 
+    // button override with user is admin
+    &.admin {
+        &::before {
+            content: attr(x-admin);
+        }
+    }
+
+    // when component state is 'recording'
     &.recording {
         display: flex;
         user-select: none;
@@ -61,12 +70,12 @@
             background: @color-primary;
 
             &::before {
-                content: attr(x-recording-hover-text);
+                content: attr(x-recording-hover);
             }
         }
 
         &::before {
-            content: attr(x-recording-text);
+            content: attr(x-recording);
         }
 
         @keyframes flickerAnimation {
@@ -76,6 +85,7 @@
         }
     }
 
+    // when component state is 'report'
     &.report {
         height: calc(100% - 200px);
         width: calc(100% - 200px);
