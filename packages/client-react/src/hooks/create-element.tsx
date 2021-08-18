@@ -8,5 +8,7 @@ export function createElement(props: BugCrushserProps, state: string | (() => vo
             <Table/>
         );
 
+        return null;
+
     }, [props, state]);
 }
