@@ -1,8 +1,7 @@
 // react components props
 type BugCrushserProps = {
     children: any,
-    buttonText: string,
-    recordingText: string
+    isAdmin: boolean,
 };
 
 // theme typings

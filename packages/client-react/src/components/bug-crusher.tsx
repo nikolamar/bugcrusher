@@ -5,7 +5,8 @@ import { createClassName } from '../hooks/create-class-name';
 
 export function BugCrusher(props: BugCrushserProps): React.ReactElement {
 
-    const [state, handleClick] = createState('button');
+    const initialState = props?.isAdmin ? 'admin' : 'user';
+    const [state, handleClick] = createState(initialState);
     const [className] = createClassName(state);
     const element = createElement(props, state);
 
@@ -13,9 +14,10 @@ export function BugCrusher(props: BugCrushserProps): React.ReactElement {
         <div
             onClick={handleClick}
             className={className}
-            x-button-text={props.buttonText || 'Start Recording'}
-            x-recording-text={props.recordingText || 'Recording'}
-            x-recording-hover-text='Stop'
+            x-user='Start Recording'
+            x-admin='Open Console'
+            x-recording='Recording'
+            x-recording-hover='Stop'
         >
             {element}
         </div>
