@@ -25,6 +25,7 @@ export function createClient(options: ReportOptions = {}): ReportClient {
         stream: {},
         recorder: {},
         chunks: [],
+        recorderListeners: [],
     };
 
     client.pushReport = pushReport.bind(state);
