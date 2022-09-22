@@ -6,8 +6,8 @@
     "url": "git+https://github.com/nikolamar/bugcrusher.git"
   },
   "scripts": {
-    "test": "jest",
-    "test:ci": "jest --coverage",
+    "test": "jest --passWithNoTests",
+    "test:ci": "jest --coverage --passWithNoTests",
     "lint": "eslint --cache --fix ./src",
     "watch:e6": "tsc --watch -p tsconfig.json",
     "watch:e5": "tsc --watch -p tsconfig.es5.json",
