@@ -23,6 +23,7 @@ type ReportClient = {
   saveReport: (name?: string) => void;
   saveVideo: (name?: string) => void;
   openReport: (file: File) => any;
+  destroy: () => void;
 };
 
 type ReportState = {
@@ -34,6 +35,7 @@ type ReportState = {
   recorder: any;
   chunks: any[];
   options: ReportOptions;
+  recorderListeners: ((e: any) => void)[];
 };
 
 export function createClient(options?: ReportOptions): ReportClient;

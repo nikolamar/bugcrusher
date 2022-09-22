@@ -8,6 +8,7 @@ import { stopRecording } from "./stop-recording";
 import { saveReport } from "./save-report";
 import { openReport } from "./open-report";
 import { saveVideo } from "./save-video";
+import { destroy } from "./destroy";
 // types
 import type { ReportClient, ReportOptions, ReportState } from "./types";
 
@@ -23,6 +24,7 @@ export function createClient(options: ReportOptions = {}): ReportClient {
     stream: {},
     recorder: {},
     chunks: [],
+    recorderListeners: [],
   };
 
   client.pushReport = pushReport.bind(state);
@@ -42,6 +44,8 @@ export function createClient(options: ReportOptions = {}): ReportClient {
   client.isRecording = isRecording.bind(state);
 
   client.isHooked = isHooked.bind(state);
+
+  client.destroy = destroy.bind(state);
 
   hookToConsole(client, state);
 
