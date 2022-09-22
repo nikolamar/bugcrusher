@@ -34,7 +34,8 @@
     "test": "jest",
     "test:ci": "jest --coverage",
     "lint": "eslint --cache --fix ./src",
-    "compile": "rm -rf dist/lib/ && tsc && tsc --build tsconfig.es5.json"
+    "copy:types": "cp src/types.d.ts dist/lib/es5 && cp src/types.d.ts dist/lib/es6",
+    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json && npm run copy:types"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
