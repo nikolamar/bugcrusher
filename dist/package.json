@@ -1,34 +1,51 @@
 {
-  "name": "bugcrusher",
+  "name": "@bug-crusher/client-js",
+  "version": "1.0.1",
   "description": "Capture console logs and fetch errors",
+  "main": "lib/es5/index.js",
+  "module": "lib/es6/index.js",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nikolamar/bugcrusher.git"
   },
+  "files": [
+    "lib",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "javascript",
+    "store",
+    "state",
+    "event",
+    "manager",
+    "react"
+  ],
+  "author": "Nikola Marjanovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikolamar/bugcrusher/issues"
+  },
+  "homepage": "https://github.com/nikolamar/bugcrusher/#readme",
   "scripts": {
     "test": "jest",
     "test:ci": "jest --coverage",
     "lint": "eslint --cache --fix ./src",
-    "watch:e6": "tsc --watch -p tsconfig.json",
-    "watch:e5": "tsc --watch -p tsconfig.es5.json",
-    "copy:types": "cp src/types.d.ts dist/lib/es5 && cp src/types.d.ts dist/lib/es6",
-    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json && npm run copy:types"
+    "compile": "rm -rf dist/lib/ && tsc && tsc --build tsconfig.es5.json"
   },
-  "author": "Nikola Marjanovic <nikolamar@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@commitlint/prompt-cli": "^17.0.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
-    "@types/crypto-js": "^4.1.1",
-    "@types/file-saver": "^2.0.5",
     "@types/jest": "^28.1.5",
     "@types/node": "^18.0.4",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.8.0",
     "esbuild": "^0.14.49",
