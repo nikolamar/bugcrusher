@@ -1,6 +1,6 @@
 {
   "name": "@bug-crusher/client-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Capture console logs and fetch errors",
   "main": "lib/es5/index.js",
   "module": "lib/es6/index.js",
