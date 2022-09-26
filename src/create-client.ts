@@ -11,6 +11,7 @@ import { saveVideo } from "./save-video";
 import { destroy } from "./destroy";
 // types
 import type { ReportClient, ReportOptions, ReportState } from "./types";
+import { onRecordingStop } from "./on-recording-stop";
 
 export function createClient(options: ReportOptions = {}): ReportClient {
   const client = console as ReportClient & Console;
@@ -46,6 +47,8 @@ export function createClient(options: ReportOptions = {}): ReportClient {
   client.isHooked = isHooked.bind(state);
 
   client.destroy = destroy.bind(state);
+
+  client.onRecordingStop = onRecordingStop.bind(state);
 
   hookToConsole(client, state);
 
