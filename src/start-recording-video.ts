@@ -1,4 +1,5 @@
 // types
+import { stopRecordingVideo } from "./stop-recording-video";
 import type { ReportState } from "./types";
 
 /**
@@ -25,6 +26,10 @@ export async function startRecordingVideo(state: ReportState): Promise<void> {
   }
 
   state.recorder = new MediaRecorder(state.stream);
+
+  state.recorder.onstop = () => {
+    stopRecordingVideo(state)
+  }
 
   state.recorder.ondataavailable = (e: BlobEvent) => state.chunks.push(e.data);
 

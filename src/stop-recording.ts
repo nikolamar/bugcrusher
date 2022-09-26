@@ -7,7 +7,5 @@ import type { ReportState } from "./types";
  * Set state recording to `false`.
  */
 export function stopRecording(this: ReportState): void {
-  this.isRecording = false;
-
-  stopRecordingVideo(this);
+  this.recorder.stop()
 }

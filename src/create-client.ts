@@ -8,10 +8,12 @@ import { stopRecording } from "./stop-recording";
 import { saveReport } from "./save-report";
 import { openReport } from "./open-report";
 import { saveVideo } from "./save-video";
+import { addOnRecordingStopListener } from "./add-on-recording-stop-listener";
+import { removeOnRecordingStopListener } from "./remove-on-recording-stop-listener";
 import { destroy } from "./destroy";
+
 // types
 import type { ReportClient, ReportOptions, ReportState } from "./types";
-import { onRecordingStop } from "./on-recording-stop";
 
 export function createClient(options: ReportOptions = {}): ReportClient {
   const client = console as ReportClient & Console;
@@ -25,7 +27,9 @@ export function createClient(options: ReportOptions = {}): ReportClient {
     stream: {},
     recorder: {},
     chunks: [],
-    recorderListeners: [],
+    recorderListeners: {
+      stop: new Map()
+    },
   };
 
   client.pushReport = pushReport.bind(state);
@@ -48,7 +52,9 @@ export function createClient(options: ReportOptions = {}): ReportClient {
 
   client.destroy = destroy.bind(state);
 
-  client.onRecordingStop = onRecordingStop.bind(state);
+  client.addOnRecordingStopListener = addOnRecordingStopListener.bind(state);
+
+  client.removeOnRecordingStopListener = removeOnRecordingStopListener.bind(state);
 
   hookToConsole(client, state);
 
