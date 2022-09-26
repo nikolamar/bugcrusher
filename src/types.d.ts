@@ -17,6 +17,7 @@ type ReportClient = {
 
   startRecording: () => void;
   stopRecording: () => void;
+  onRecordingStop: (listener: () => void) => void;
 
   pushReport: (data: Data, options?: ReportPushOptions) => void;
   getReport: () => Record<string, unknown>[];
