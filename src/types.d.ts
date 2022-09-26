@@ -17,7 +17,8 @@ type ReportClient = {
 
   startRecording: () => void;
   stopRecording: () => void;
-  onRecordingStop: (listener: () => void) => void;
+  addOnRecordingStopListener: (listener: () => void) => Symbol;
+  removeOnRecordingStopListener: (symbol: Symbol) => void;
 
   pushReport: (data: Data, options?: ReportPushOptions) => void;
   getReport: () => Record<string, unknown>[];
@@ -36,7 +37,9 @@ type ReportState = {
   recorder: any;
   chunks: any[];
   options: ReportOptions;
-  recorderListeners: ((e: any) => void)[];
+  recorderListeners: {
+    stop: Map
+  };
 };
 
 export function createClient(options?: ReportOptions): ReportClient;

@@ -10,9 +10,12 @@ export function stopRecordingVideo(state: ReportState): void {
     throw new Error(`Please specify media source, can't stop recording.`);
   }
 
-  state.recorder.onstop = () => {
-    state.isVideoReady = true;
-  };
+  state.isRecording = false;
+  state.isVideoReady = true;
 
-  state.recorder.stop();
+  state.recorderListeners.stop.forEach((listener: () => void) => {
+    if(typeof listener === 'function'){
+      listener()
+    }
+  });
 }
